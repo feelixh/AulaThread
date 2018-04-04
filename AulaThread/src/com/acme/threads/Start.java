@@ -7,13 +7,15 @@ package com.acme.threads;
 
 /**
  *
- * @author felix
+ * @author Mateus
  */
-public class SimpleThread implements Runnable{
+public class Start {
 
-    @Override
-    public void run() {
-       
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
     }
     
 }
