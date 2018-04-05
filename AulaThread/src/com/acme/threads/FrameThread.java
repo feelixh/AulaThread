@@ -5,11 +5,19 @@
  */
 package com.acme.threads;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateus
  */
 public class FrameThread extends javax.swing.JFrame {
+
+    static boolean continueTime;
+
+    public boolean getContinue() {
+        return this.continueTime;
+    }
 
     /**
      * Creates new form FrameThread
@@ -62,21 +70,27 @@ public class FrameThread extends javax.swing.JFrame {
 
         jlHora.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jlHora.setText("00");
+        jlHora.setName("hora"); // NOI18N
 
         jlmMinuto.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jlmMinuto.setText("00");
+        jlmMinuto.setName("minuto"); // NOI18N
 
         jlSegundo.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jlSegundo.setText("00");
+        jlSegundo.setName("segundos"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel1.setText(":");
+        jLabel1.setName("gerg"); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel2.setText(":");
+        jLabel2.setName("dfgs"); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         jLabel3.setText("Relógio");
+        jLabel3.setName("sfasfs"); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,15 +144,24 @@ public class FrameThread extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.continueTime = true;
+        new Thread(new SimpleThread(this, 0)).start();
+        new Thread(new SimpleThread(this, 1)).start();
+        new Thread(new SimpleThread(this, 2)).start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        this.continueTime = false;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if (this.continueTime) {
+            jlHora.setText("00");
+            jlmMinuto.setText("00");
+            jlSegundo.setText("00");
+        } else {
+            JOptionPane.showMessageDialog(this, "É necessário para primeiro.");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

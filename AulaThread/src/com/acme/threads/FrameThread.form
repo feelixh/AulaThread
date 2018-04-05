@@ -107,6 +107,7 @@
           <Font name="Dialog" size="36" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="00"/>
+        <Property name="name" type="java.lang.String" value="hora" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jlmMinuto">
@@ -115,6 +116,7 @@
           <Font name="Dialog" size="36" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="00"/>
+        <Property name="name" type="java.lang.String" value="minuto" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jlSegundo">
@@ -123,6 +125,7 @@
           <Font name="Dialog" size="36" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="00"/>
+        <Property name="name" type="java.lang.String" value="segundos" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -131,6 +134,7 @@
           <Font name="Dialog" size="36" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value=":"/>
+        <Property name="name" type="java.lang.String" value="gerg" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -139,6 +143,7 @@
           <Font name="Dialog" size="36" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value=":"/>
+        <Property name="name" type="java.lang.String" value="dfgs" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -147,6 +152,7 @@
           <Font name="Dialog" size="48" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Rel&#xf3;gio"/>
+        <Property name="name" type="java.lang.String" value="sfasfs" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>
