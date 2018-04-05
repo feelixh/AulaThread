@@ -16,6 +16,11 @@ public class FrameThread extends javax.swing.JFrame {
     static boolean continueTime;
 
     int segundos, minutos, horas;
+    private int setMinutos;
+    
+        Thread t0;
+        Thread t1;
+        Thread t2;
 
     public int getSegundos() {
         return segundos;
@@ -50,6 +55,9 @@ public class FrameThread extends javax.swing.JFrame {
      */
     public FrameThread() {
         initComponents();
+        this.setSegundos(0);
+        this.setMinutos(0);
+        this.setHoras(0);
     }
 
     /**
@@ -172,60 +180,33 @@ public class FrameThread extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.continueTime = true;
-        new Thread(new SimpleThread(this, 0)).start();
-        new Thread(new SimpleThread(this, 1)).start();
-        new Thread(new SimpleThread(this, 2)).start();
+        t0 = new Thread(new SimpleThread(this, 0));
+        t1 = new Thread(new SimpleThread(this, 1));
+        t2 = new Thread(new SimpleThread(this, 2));
+        t0.start();
+        t1.start();
+        t2.start();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.continueTime = false;
+        t0.stop();
+        t1.stop();
+        t2.stop();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (!this.continueTime) {
-            jlHora.setText("00");
-            jlmMinuto.setText("00");
-            jlSegundo.setText("00");
-            this.segundos = 0;
+            jlHora.setText("0" + String.valueOf(this.getHoras()));
+            jlmMinuto.setText("0" + String.valueOf(this.getMinutos()));
+            jlSegundo.setText("0" + String.valueOf(this.getHoras()));
+            this.setMinutos(0);
+            this.setHoras(0);
+            this.setSegundos(0);
         } else {
             JOptionPane.showMessageDialog(this, "É necessário para primeiro.");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameThread.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameThread.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameThread.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameThread.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameThread().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

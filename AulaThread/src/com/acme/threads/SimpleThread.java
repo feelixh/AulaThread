@@ -32,8 +32,8 @@ public class SimpleThread implements Runnable {
                     if (a instanceof JLabel) {
                         if (a.getName().equalsIgnoreCase("segundos")) {
                             try {
-
                                 Thread.sleep(1000);
+                                segundos = frame.getSegundos();
                                 segundos++;
                                 if (frame.getSegundos() >= 59) {
                                     frame.setSegundos(0);
@@ -60,6 +60,7 @@ public class SimpleThread implements Runnable {
                         if (a.getName().equalsIgnoreCase("minutos")) {
                             try {
                                 Thread.sleep(60000);
+                                minutos = frame.getMinutos();
                                 minutos++;
                                 if (frame.getMinutos() >= 59) {
                                     frame.setMinutos(0);
@@ -85,6 +86,7 @@ public class SimpleThread implements Runnable {
                         if (a.getName().equalsIgnoreCase("horas")) {
                             try {
                                 Thread.sleep(3600000);
+                                horas = frame.getHoras();
                                 horas++;
                                 if (frame.getHoras() >= 23) {
                                     frame.setHoras(0);
